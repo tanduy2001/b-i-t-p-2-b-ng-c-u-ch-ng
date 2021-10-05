@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function factorial(n) {
+            if(n == 0 || n == 1) return 1;
+            return n * factorial(n - 1);
+        }
+      
+        function exp(x, eps) {
+            var n = 0;
+            var first = 1;
+            var last = first + Math.pow(x, n) / factorial(n);
+
+            while(Math.abs(first - last) > eps) {
+                first = last;
+                last = first + Math.pow(x, n) / factorial(n);
+                n++;
+            }
+
+            console.log(first);
+        }
+
+        exp(5, 0.00000005);
+    </script>
+</body>
+</html>
